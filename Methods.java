@@ -34,6 +34,18 @@ public class Methods {
         }
     }
 
+    public static void btod(int n){
+        int decimal=0;
+        int pow=0;
+        while(n>0){
+            int lastDigit=n%10;
+            decimal=decimal+lastDigit*(int)(Math.pow(2,pow));
+            pow++;
+            n=n/10;
+        }
+        System.out.println("Decimal value of binary number is "+decimal);
+    }
+
     public static void binoamialCoefficient(int n, int r){
         int v1=factorial(n);
         int v2=factorial(r);
@@ -48,6 +60,7 @@ public class Methods {
         factorial(4);
         binoamialCoefficient(5,2);
         prime(10);
+        btod(111);
 
     }
 }
