@@ -70,6 +70,28 @@ public class Array {
         System.out.println("Maximum sum is "+max);
     }
 
+    public static int trappedRainWater(int a[]){
+        int leftMax[]=new int [a.length];
+        int rightMax[]=new int [a.length];
+        int waterLevel =Integer.MIN_VALUE;
+        int trappedWater =0;
+        rightMax[a.length-1]=a[a.length-1];
+        leftMax[0]=a[0];
+        for(int i=1;i<a.length-1;i++){
+            leftMax[i]=Math.max(leftMax[i-1],a[i]);
+        }
+        for(int i=a.length-2;i>=0;i--){
+            rightMax[i]=Math.max(rightMax[i+1],a[i]);
+        }
+
+        for(int i=0;i<a.length-1;i++){
+            waterLevel =Math.min(leftMax[i], rightMax[i]);
+            trappedWater += waterLevel -a[i];
+
+        }
+        return trappedWater;
+    }
+
     public static void possiblePairs(int a[]){
         int count=0;
         for(int i=0;i<a.length;i++){
@@ -144,5 +166,8 @@ public class Array {
         subArray(a);
         subArray2(a);
         kadanesAlgo(a);
+        int c[]= {4,2,0,6,3,2,5};
+        int water= trappedRainWater(c);
+        System.out.println("Water trapped is "+water);
     }
 }
