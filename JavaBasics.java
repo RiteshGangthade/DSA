@@ -15,7 +15,8 @@ public class JavaBasics {
 //        pattern1();
 //        pattern2(4);
 //        pattern3(5);
-        pattern4(4);
+ //       pattern4(4);
+        reverseSentence();
 
     }
 
@@ -116,6 +117,14 @@ public class JavaBasics {
             }else{
                 System.out.println(n+" is not a prime number");
             }
+        }
+    }
+
+    static void reverseSentence() {
+        String str = "Hello my dear friend";
+        String[] words = str.split(" ");
+        for (int i = words.length - 1; i >= 0; i--) {
+            System.out.print(words[i]+" ");
         }
     }
 }
